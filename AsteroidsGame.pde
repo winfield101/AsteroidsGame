@@ -5,12 +5,14 @@ public void setup()
 }
 public void draw() 
 {
-  //your code here
+  triangle(50,50,70,70,80,80);
 }
-class SpaceShip //extends Floater  
+class SpaceShip extends Floater  
 {   
-    //your code here
-}
+    Spaceship()
+    {
+
+    }
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
