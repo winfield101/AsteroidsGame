@@ -5,14 +5,37 @@ public void setup()
 }
 public void draw() 
 {
-  triangle(50,50,70,70,80,80);
+  
 }
 class SpaceShip extends Floater  
 {   
-    Spaceship()
+    public Spaceship()
     {
+      corners = 3;
+      xCorners = new int[corners];
+      yCorners = new int[corners];
+      xCorners[0] =-8;
+      yCorners[0] =-8;
+      xCorners[1] =16;
+      yCorners[1] =0;
+      xCorners[2] =-8;
+      yCorners[2] =8;
+      myColor = (255);
+      
 
     }
+public void getX() { return myCenterX;}
+public void getY() { return myCenterY;}
+public void setX(int x1) {myCenterX =x1;}
+public void setY(int y1) {myCenterY =y1;}
+public void getX() { return myDirectionX;}
+public void getY() { return myDirectionY;}
+public void setX(double x2) {myDirectionX =x2;}
+public void setY(double y2) {myDirectionY = y2;}
+public void getX() {return myPointDirection;}
+public void setX(int degrees) {myPointDirection = degrees;}
+
+}
 abstract class Floater //Do NOT modify the Floater class! Make changes in the SpaceShip class 
 {   
   protected int corners;  //the number of corners, a triangular floater has 3   
