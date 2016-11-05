@@ -1,7 +1,7 @@
 //your variable declarations here
 
 SpaceShip bob;
-Asteroid [] rock = new Asteroid[50];
+Asteroid [] rock;
 Star [] galaxy = new Star[250];
 public void setup()
 
@@ -9,12 +9,12 @@ public void setup()
 
   //your code here
 
-  size(600,600);
-  bob = new SpaceShip();
-
-  for (int i = 0; i < rock.length; i++) {rock[i] = new Asteroid();}
-  for (int j = 0; j < galaxy.length; j++) {galaxy[j] = new Star();}
-
+ size(600,600);
+ for (int j = 0; j < galaxy.length; j++) {galaxy[j] = new Star();}
+ bob = new SpaceShip();
+ rock = new Asteroid[50];
+ for (int i = 0; i < rock.length; i++) {rock[i] = new Asteroid();}
+    //rock[] =  new Asteroid ();
 }
 
 public void draw()
@@ -29,6 +29,12 @@ public void draw()
   bob.rotate(0);
   for (int i = 0; i < rock.length; i++) {rock[i].show();}
   for (int j = 0; j <galaxy.length; j++) {galaxy[j].show();}
+  for (int i = 0; i < rock.length; i++)
+ {
+    rock[i].show();
+    rock[i].move();
+ }
+
 
 }
 
@@ -118,16 +124,16 @@ class Asteroid extends Floater
 
 
 {
-  private int aY;
   private int aX;
+  private int aY;
   private int speedRotate;
    public Asteroid()
 
   {
 
-    aX = (int)(Math.random()*600);
-    aY = (int)(Math.random()*600);
-    speedRotate = (int)((Math.random()*12)-6);
+    aX = (int)(Math.random()*800);
+    aY = (int)(Math.random()*800);
+    speedRotate = (int)((Math.random()*14)-7);
     corners = 8;
     xCorners = new int[corners];
     yCorners = new int[corners];
@@ -149,11 +155,11 @@ class Asteroid extends Floater
     yCorners[7] = -14;
 
     myColor = color((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-    myCenterX = (int)(Math.random()*600);
-    myCenterY = (int)(Math.random()*600);
-    myDirectionX = 0;
-    myDirectionY = 0;
-    myPointDirection = (int)(Math.random()*100);
+    myCenterX = (int)(Math.random()*800);
+    myCenterY = (int)(Math.random()*800);
+    myDirectionX =(int)(Math.random()*3);
+    myDirectionY = (int)(Math.random()*3);
+    myPointDirection = (int)(Math.random()*360);
 
   }
 
