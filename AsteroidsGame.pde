@@ -1,40 +1,47 @@
-//your variable declarations here
-
 SpaceShip bob;
-Asteroid [] rock;
-Star [] galaxy = new Star[250];
-public void setup()
+Star[] galaxy;
+int numberStars = 100;
+ArrayList <Asteroid> rocks;
+int numberAsteroids = 100;
 
-{
+public void settings() {
+ size(600, 600);
 
-  //your code here
 
- size(600,600);
- for (int j = 0; j < galaxy.length; j++) {galaxy[j] = new Star();}
  bob = new SpaceShip();
- rock = new Asteroid[50];
- for (int i = 0; i < rock.length; i++) {rock[i] = new Asteroid();}
-    //rock[] =  new Asteroid ();
-}
 
+ galaxy = new Star[numberStars];
+ for (int i = 0; i < numberStars; i++) {
+    galaxy[i] = new Star();
+ }
+ rocks = new ArrayList <Asteroid>();
+ for (int i = 0; i < numberAsteroids; i++) {
+    rocks.add(new Asteroid());
+    rocks.get(i).accelerate(Math.random() * 0.5);    
+ }
+
+}
 public void draw()
 
 {
-
-  //your code here
-
-  background(0);
-  bob.show();
-  bob.move();
-  bob.rotate(0);
-  for (int i = 0; i < rock.length; i++) {rock[i].show();}
-  for (int j = 0; j <galaxy.length; j++) {galaxy[j].show();}
-  for (int i = 0; i < rock.length; i++)
- {
-    rock[i].show();
-    rock[i].move();
+ background(0, 25, 50);
+ for (int i = 0; i < numberStars; i++) {
+    galaxy[i].show();
  }
 
+ bob.move();
+ bob.show();
+
+ for (int i = 0; i < rocks.size(); i++) {
+    rocks.get(i).show();
+    rocks.get(i).rotate(1);
+    rocks.get(i).move();
+ }
+ for (int i = rocks.size() - 1; i >= 0; i--) {
+    if (dist(bob.getX(), bob.getY(), rocks.get(i).getX(), rocks.get(i).getY()) <= 16) {
+     rocks.remove(i);
+    }
+ }
 
 }
 
