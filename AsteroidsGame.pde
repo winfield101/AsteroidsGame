@@ -1,8 +1,8 @@
 SpaceShip bob;
 Star[] galaxy;
-int numberStars = 100;
+
 ArrayList <Asteroid> rocks;
-int numberAsteroids = 100;
+int numberAsteroids = 50;
 
 public void settings() {
  size(600, 600);
@@ -10,8 +10,8 @@ public void settings() {
 
  bob = new SpaceShip();
 
- galaxy = new Star[numberStars];
- for (int i = 0; i < numberStars; i++) {
+ galaxy = new Star[100];
+ for (int i = 0; i < galaxy.length; i++) {
     galaxy[i] = new Star();
  }
  rocks = new ArrayList <Asteroid>();
@@ -24,8 +24,8 @@ public void settings() {
 public void draw()
 
 {
- background(0, 25, 50);
- for (int i = 0; i < numberStars; i++) {
+ background(0,25,25);
+ for (int i = 0; i < galaxy.length; i++) {
     galaxy[i].show();
  }
 
@@ -67,19 +67,19 @@ public void keyPressed()
 class Star
 
 {
-  private int sX, sY;
+  private int starX, starY;
   public Star()
 
   {
-    sX = (int)(Math.random() *600);
-    sY = (int)(Math.random()* 600);
+    starX = (int)(Math.random() *600);
+    starY = (int)(Math.random()* 600);
   }
 
     public void show()
 
     {
       fill(255 );
-      ellipse(sX,sY,3,3);
+      ellipse(starX,starY,3,3);
     }
 
 }
@@ -131,15 +131,15 @@ class Asteroid extends Floater
 
 
 {
-  private int aX;
-  private int aY;
+  private int asteroidX;
+  private int asteroidY;
   private int speedRotate;
    public Asteroid()
 
   {
 
-    aX = (int)(Math.random()*800);
-    aY = (int)(Math.random()*800);
+    asteroidX = (int)(Math.random()*800);
+    asteroidY = (int)(Math.random()*800);
     speedRotate = (int)((Math.random()*14)-7);
     corners = 8;
     xCorners = new int[corners];
