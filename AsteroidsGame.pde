@@ -4,10 +4,8 @@ Star[] galaxy;
 ArrayList <Asteroid> rocks;
 int numberAsteroids = 50;
 
-public void settings() {
- size(600, 600);
-
-
+public void setup() {
+  size(600,600);
  bob = new SpaceShip();
 
  galaxy = new Star[100];
